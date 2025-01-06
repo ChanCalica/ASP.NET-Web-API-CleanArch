@@ -46,7 +46,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-@Id=12
+@Id=2
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
 
 ###
@@ -70,5 +70,17 @@ Content-Type: application/json
 
 @Id=3
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
+
+###
+
+@Id=2
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
+Content-Type: application/json
+
+{
+  "Name": "Somu Niku2",
+  "Description": "Indian",
+  "HasDelivery": false
+}
 
 ###
