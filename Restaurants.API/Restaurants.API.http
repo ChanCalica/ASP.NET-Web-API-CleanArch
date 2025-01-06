@@ -1,0 +1,69 @@
+@host = http://localhost
+@port = 5045
+
+@Restaurants.API_HostAddress = https://localhost:7047
+
+GET {{Restaurants.API_HostAddress}}/api/weatherforecast/23/example?max=5
+Accept: application/json
+ProjectUrl: {{$projectUrl}}
+LocalDate: {{$datetime iso8601}} 
+Random-int: {{$randomInt}}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast
+Content-Type: application/json
+
+{
+  "email": "test@test.com"
+}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/weatherforecast/currentDay
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast
+Content-Type: application/json
+
+"Chan"
+
+###
+
+@count=2
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?count={{count}}
+Content-Type: application/json
+
+{
+  "min": 23,
+  "max": 22
+}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
+
+@Id=1
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "Name": "Jollibee",
+  "Description": "Chicken Joy",
+  "Category": "Fine Dining",
+  "HasDelivery": true,
+  "ContactEmail": "email@gmail.com",
+  "ContactNumber": "777-777-66",
+  "City": "Imus",
+  "Street": "Salitran 1",
+  "PostalCode": "41-114"
+}
+
+###
