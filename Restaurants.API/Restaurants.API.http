@@ -46,7 +46,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-@Id=1
+@Id=12
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
 
 ###
@@ -55,9 +55,9 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Jollibee",
+  "Name": "Bonchon",
   "Description": "Chicken Joy",
-  "Category": "Fine Dining",
+  "Category": "Indian",
   "HasDelivery": true,
   "ContactEmail": "email@gmail.com",
   "ContactNumber": "777-777-66",
