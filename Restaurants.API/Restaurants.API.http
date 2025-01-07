@@ -46,8 +46,8 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-@Id=2
-GET {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
+@id=2
+GET {{Restaurants.API_HostAddress}}/api/restaurants/2
 
 ###
 
@@ -55,7 +55,7 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Bonchon",
+  "Name": "Bonchon1",
   "Description": "Chicken Joy",
   "Category": "Indian",
   "HasDelivery": true,
@@ -73,12 +73,12 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
 
 ###
 
-@Id=2
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{{Id}}
+@id=5
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/5
 Content-Type: application/json
 
 {
-  "Name": "Somu Niku2",
+  "Name": "Bonchon4",
   "Description": "Indian",
   "HasDelivery": false
 }
