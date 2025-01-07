@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Application.Restaurants.Commands.DeleteRestaurant;
 using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
+using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantById;
 
@@ -20,7 +21,9 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     //}
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<RestaurantDto>))]
+    //public async Task<IActionResult> GetAll()
+    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll()
     {
         //var restaurants = await restaurantsService.GetAllRestaurants();
 
@@ -30,7 +33,8 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById([FromRoute] int id)
+    //public async Task<IActionResult> GetById([FromRoute] int id)
+    public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] int id)
     {
         //var restaurant = await restaurantsService.GetRestaurant(Id);
 
@@ -46,6 +50,8 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     }
 
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteRestaurant([FromRoute] int id)
     {
         var isDeleted = await mediator.Send(new DeleteRestaurantCommand(id));
@@ -57,6 +63,8 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     }
 
     [HttpPatch("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, UpdateRestaurantCommand command)
     {
         command.Id = id;
