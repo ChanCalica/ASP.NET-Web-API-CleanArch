@@ -47,7 +47,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
 @id=2
-GET {{Restaurants.API_HostAddress}}/api/restaurants/2
+GET {{Restaurants.API_HostAddress}}/api/restaurants/5
 
 ###
 
@@ -82,5 +82,25 @@ Content-Type: application/json
   "Description": "Indian",
   "HasDelivery": false
 }
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/dishes/5/dishes
+Content-Type: application/json
+
+{
+  "Name": "Spaghetti",
+  "Description": "Jollibee",
+  "Price": 50.99,
+  "KiloCalories": 100
+}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/dishes/1/dishes
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/dishes/4/dishes/3
 
 ###
