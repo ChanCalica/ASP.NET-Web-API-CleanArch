@@ -1,3 +1,4 @@
+using Restaurants.API.Middlewares;
 using Restaurants.API.Services;
 using Restaurants.Application.Extensions;
 using Restaurants.Infrastructure.Extensions;
@@ -15,6 +16,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 
@@ -38,6 +41,8 @@ var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 
 await seeder.Seed();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseSerilogRequestLogging();
 
