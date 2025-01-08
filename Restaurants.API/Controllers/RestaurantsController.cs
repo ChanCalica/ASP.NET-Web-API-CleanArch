@@ -43,8 +43,8 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
         //    Id = id
         //});
 
-        if (restaurant is null)
-            return NotFound();
+        //if (restaurant is null)
+        //    return NotFound();
 
         return Ok(restaurant);
     }
@@ -54,12 +54,13 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteRestaurant([FromRoute] int id)
     {
-        var isDeleted = await mediator.Send(new DeleteRestaurantCommand(id));
+        /*var isDeleted =*/
+        await mediator.Send(new DeleteRestaurantCommand(id));
 
-        if (isDeleted)
-            return NoContent();
+        //if (isDeleted)
+        return NoContent();
 
-        return NotFound();
+        //return NotFound();
     }
 
     [HttpPatch("{id}")]
@@ -68,12 +69,13 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, UpdateRestaurantCommand command)
     {
         command.Id = id;
-        var isUpdated = await mediator.Send(command);
+        /*     var isUpdated = */
+        await mediator.Send(command);
 
-        if (isUpdated)
-            return NoContent();
+        //if (isUpdated)
+        return NoContent();
 
-        return NotFound();
+        //return NotFound();
     }
 
     [HttpPost]
