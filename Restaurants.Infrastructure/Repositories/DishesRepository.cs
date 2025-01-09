@@ -35,7 +35,7 @@ internal class DishesRepository(RestaurantsDbContext dbContext) : IDishesReposit
 
         var dishes = await dbContext.Dishes.Where(d => d.RestaurantId.Equals(restaurantId)).ToListAsync();
 
-        var dishes2 = await dbContext.Dishes.Select(d => new Dish()
+        var dishes2 = await dbContext.Dishes.Select(d => new Dish
         {
             Id = d.Id,
             Name = d.Name,

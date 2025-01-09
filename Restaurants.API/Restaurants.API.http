@@ -1,5 +1,6 @@
 @host = http://localhost
 @port = 5045
+@token = CfDJ8GJkjeut_RJNoKW7lDp2PQBrZ_HqyMlGU6YHiWmyd0xiwD8NHv7VZcAYo0x4KVXWadXXVLCJiBu2RWIQkq3BgEnApd9z3nv5XxqbNsfiT2jlMWT48djln4pMg-FyM6Qj26rLT69n-mDekr6OY3f8LiBvZtWRJuUU9e2RLHvKPf0iksqulyfWtYuGFTp8ntay-bM7r86yuvlXWp9ttGXDWsyfNrXzpInjYMSeJ21IXRK6UtfqnTRb3eZTLM_gVl4NzyTwUIsQpuxkD4eXB2nxy8XXW6_iNhQ2HPqo_mzI8JMpVvArh8VpVDktkhTI7yR5W-iEV1489KAdnXRLQJgX0Ri1nq6lZiHhcbHnp7eGeGEGCdqj7EBpBKLv_o-RyWWfbtgl4XTGgmLuT93IP3FUuunhoBhbyyv6WQSWvNNnfan9vP_8GE3rmZ0rpsnTOSl8MNQ4nO1WlnBezqbCzxRrpwntA4V3uZ4z9vpsRHeC4lBWY20n2lKyifHtI_cAhxJtm21B25LLXIVRUh7PCi-wUAROeduJgIrvgI3x2Lu7kZP24rvtAiAlm4UB7Xvs41rG62_FR5eL6NuTjsau8UcVEJg0erfkExiHAK8ivADw94QkxlMQEHFu_XxAB-Mnop4fFcAB7KnowIfcT6VrjjoDCSjn-HlZnI3QKEtx3FY4WEKBDDKTWGPCxT9rbrwPt39epvqCBxWZ6UWb1HuqipF7Kho
 
 @Restaurants.API_HostAddress = https://localhost:7047
 
@@ -43,6 +44,7 @@ Content-Type: application/json
 ###
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 
 ###
 
@@ -107,5 +109,25 @@ GET {{Restaurants.API_HostAddress}}/api/dishes/4/dishes/3
 
 @restaurantId=0
 DELETE {{Restaurants.API_HostAddress}}/api/dishes/1/dishes
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "testuser@gmail.com",
+  "password": "Password1!"
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "testuser@gmail.com",
+  "password": "Password1!"
+}
 
 ###
