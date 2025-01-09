@@ -1,6 +1,6 @@
 @host = http://localhost
 @port = 5045
-@token = CfDJ8GJkjeut_RJNoKW7lDp2PQBrZ_HqyMlGU6YHiWmyd0xiwD8NHv7VZcAYo0x4KVXWadXXVLCJiBu2RWIQkq3BgEnApd9z3nv5XxqbNsfiT2jlMWT48djln4pMg-FyM6Qj26rLT69n-mDekr6OY3f8LiBvZtWRJuUU9e2RLHvKPf0iksqulyfWtYuGFTp8ntay-bM7r86yuvlXWp9ttGXDWsyfNrXzpInjYMSeJ21IXRK6UtfqnTRb3eZTLM_gVl4NzyTwUIsQpuxkD4eXB2nxy8XXW6_iNhQ2HPqo_mzI8JMpVvArh8VpVDktkhTI7yR5W-iEV1489KAdnXRLQJgX0Ri1nq6lZiHhcbHnp7eGeGEGCdqj7EBpBKLv_o-RyWWfbtgl4XTGgmLuT93IP3FUuunhoBhbyyv6WQSWvNNnfan9vP_8GE3rmZ0rpsnTOSl8MNQ4nO1WlnBezqbCzxRrpwntA4V3uZ4z9vpsRHeC4lBWY20n2lKyifHtI_cAhxJtm21B25LLXIVRUh7PCi-wUAROeduJgIrvgI3x2Lu7kZP24rvtAiAlm4UB7Xvs41rG62_FR5eL6NuTjsau8UcVEJg0erfkExiHAK8ivADw94QkxlMQEHFu_XxAB-Mnop4fFcAB7KnowIfcT6VrjjoDCSjn-HlZnI3QKEtx3FY4WEKBDDKTWGPCxT9rbrwPt39epvqCBxWZ6UWb1HuqipF7Kho
+@token = CfDJ8GJkjeut_RJNoKW7lDp2PQBVZPYn1SfEVaqLEkehM957WGTC-b7VCcRjIz_UYiY3LnXrYuXb3Nba6JoybNlk48bCsA9bDxxIF5865z9ukfLrNcA6N_NfVKxbSJ_W0zWGRxIDtIcKOhxA87JUFWlty_kESQ0KH8Vd4NDXcfSFxed-A-oJ5wKQ_0cIz7kXFR0IJRyuLmnxFDBTVYKppWy6lS8VUfwm1iAGMYppz0k1uLvoVoKWKbCeqoLcKAU922o9BJTP8T_8nFFfROqFP6vvBpdh7yy_ITWvH2bi4yqjv_zN5RuG8JgVWNHSDlT6zLpMdLo1yyndBezDkMPPSDY8kRTGjqPdh6kDncdqDc9Y5VvJW_XX8AGOjBDIxR26i7RJ5rYkYpDIsUkeTYdJUj-Iagc5V0CxCaubbKtpEmvjmWUNbZEw0RD6zkeD6vHYtBDbdHArrCOP4_fpj3JZt6WhpScs-t35scY4Fh8XFx99lyszOcT38kXAkshbq3odHRkaRbOudlV4L7Do_Jrtm6Q8O-y95E1ZV-90btLarjPMMwQLB7xjrRHa37-m666AZHrME47frwdgQNP2flT9RcKS-bGvyVLkXC41o8sKiacU5ilydOyn2JhssaRpS8WZo55LePmnPfmp-UiQww3nCEwcB0sbbPOwJV8AJF7D1HOQdOVFNOVhA-3tzC06A4LECwYsN4J1n9RWjMBmlyK1dJB5Myq8QHJsIPxnrzkjGTtgJsQVw2bCjbXHuc4N3zS1BwdU6EH2p47moamvCf_VlH9jLpq4H-HEQWzxy8fGARRqXmgP
 
 @Restaurants.API_HostAddress = https://localhost:7047
 
@@ -49,15 +49,17 @@ Authorization: Bearer {{token}}
 ###
 
 @id=2
-GET {{Restaurants.API_HostAddress}}/api/restaurants/5
+GET {{Restaurants.API_HostAddress}}/api/restaurants/1
+Authorization: Bearer {{token}}
 
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "Name": "Bonchon1",
+  "Name": "Bonchon3",
   "Description": "Chicken Joy",
   "Category": "Indian",
   "HasDelivery": true,
@@ -116,7 +118,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "email": "testuser@gmail.com",
+  "email": "owner@test.com",
   "password": "Password1!"
 }
 
@@ -126,7 +128,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "testuser@gmail.com",
+  "email": "admin@test.com",
   "password": "Password1!"
 }
 
