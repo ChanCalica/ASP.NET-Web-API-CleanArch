@@ -10,9 +10,9 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
     public class CreateDishCommandHandler(ILogger<CreateDishCommandHandler> logger,
         IRestaurantRepository restaurantRepository,
         IDishesRepository dishesRepository,
-        IMapper mapper) : IRequestHandler<CreateDishCommand>
+        IMapper mapper) : IRequestHandler<CreateDishCommand, int>
     {
-        public async Task Handle(CreateDishCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateDishCommand request, CancellationToken cancellationToken)
         {
             logger.LogInformation("Create new dish: {@DishRequest}", request);
 
@@ -22,7 +22,7 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
 
             var dish = mapper.Map<Dish>(request);
 
-            await dishesRepository.CreateAsync(dish);
+            return await dishesRepository.CreateAsync(dish);
         }
     }
 }
