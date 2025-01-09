@@ -5,5 +5,6 @@ namespace Restaurants.Domain.Repositories;
 public interface IDishesRepository
 {
     Task<int> CreateAsync(Dish entity);
+    Task Delete(IEnumerable<Dish> entities);
     Task<IEnumerable<Dish>> GetDishesByRestaurantId();
 }
