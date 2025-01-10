@@ -25,8 +25,8 @@ public class RestaurantsController(/*IRestaurantsService restaurantsService*/ IM
     //}
 
     [HttpGet]
-    //[Authorize]
-    [AllowAnonymous]
+    [Authorize(Policy = PolicyNames.CreatedAtleast2Restaurants)]
+    //[AllowAnonymous]
     //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<RestaurantDto>))]
     //public async Task<IActionResult> GetAll()
     public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll()
